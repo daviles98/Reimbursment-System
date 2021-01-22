@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+  background-image: url('https://wallpaperforu.com/wp-content/uploads/2020/05/paste-wallpaper-20052202345515-scaled.jpg');
+}
+</style>
+<meta charset="ISO-8859-1">
+<title>Home</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+	crossorigin="anonymous">
+
+</head>
+<body>
+
+	<div class="position-absolute top-0 end-0">
+		<form method="post" action="/ProjectOne/api/forward/logout" id="logout">
+			<!-- <input type="submit" value="Logout"> -->
+			<button type="submit" class="btn btn-outline-danger">Logout</button>
+		</form>
+	</div>
+
+
+	<div class="text-center">
+		<img
+			src="https://img.icons8.com/cotton/2x/get-cash.png"
+			class="rounded">
+	</div>
+	<br />
+	<div class="d-grid gap-2">
+		<button type="button" class="btn btn-outline-primary"
+			data-bs-toggle="modal" data-bs-target="#exampleModal">(+)
+			Add Reimbursment</button>
+	</div>
+
+	<br />
+
+	<table id="myUserTable2" class="table table-striped">
+		<thead>
+			<tr>
+				<th scope="col">Amount</th>
+				<th scope="col">Time Submitted</th>
+				<th scope="col">Time Resolved</th>
+				<th scope="col">Description</th>
+				<th scope="col">Type</th>
+				<th scope="col">Status</th>
+			</tr>
+		</thead>
+
+
+		<tbody id="userTableBody2">
+
+
+		</tbody>
+	</table>
+
+	<div class="modal fade" id="exampleModal" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Request New
+						Reimbursment</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form method="post" action="/ProjectOne/api/forward/insertReimbursment" id="insert-form">
+						<div class="mb-3">
+							<!-- <input type="text"class="col-form-label" id="type-text" name="type"> -->
+							<select class="form-select" name="type" id="type">
+								<option selected>Choose Type...</option>
+								<option value="lodging">Lodging</option>
+								<option value="travel">Travel</option>
+								<option value="food">Food</option>
+								<option value="other">Other</option>
+							</select>
+						</div>
+						<div class="mb-3">
+							<label for="amount-text" class="col-form-label">Amount:</label> 
+							<input type="number" min="1" step="any" class="col-form-label" id="amount-number" name="amount">
+						</div>
+						<div class="mb-3">
+							<label for="message-text" class="col-form-label">Description:</label>
+							<input type="text" name="description">
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger"
+						data-bs-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-success" form="insert-form">Submit</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+		crossorigin="anonymous"></script>
+	<script type="text/Javascript"
+		src="/ProjectOne/resources/js/homepage-employee.js"></script>
+</body>
+</html>
